@@ -24,4 +24,11 @@ class EWSType_SubscribeType extends EWSType
      * @var EWSType_PushSubscriptionRequestType
      */
     public $PushSubscriptionRequest;
+
+    /**
+     * StreamingSubscriptionRequest property
+     *
+     * @var EWSType_StreamingSubscriptionRequestType
+     */
+    public $StreamingSubscriptionRequest;
 }

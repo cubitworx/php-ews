@@ -42,4 +42,42 @@ abstract class EWSType
             }
         }
     }
+
+		public function asObject( $bIgnoreNullProperties = false ) {
+			$obj = new stdClass();
+			$reflect = new ReflectionObject( $this );
+
+	    // Iterate over all public properties on the current object.
+			foreach( $reflect->getProperties( ReflectionProperty::IS_PUBLIC ) as $prop ) {
+				$szName = $prop->getName();
+				$mValue = $this->{$szName};
+				if( !is_null( $mValue ) ) {
+					if( ( $mValue instanceof self ) || ( method_exists( $mValue, 'asObject' ) ) ) {
+						$obj->{$szName} = $mValue->asObject( $bIgnoreNullProperties );
+					} elseif( is_array( $mValue ) ) {
+						$obj->{$szName} = array();
+						foreach( $mValue as $mKey => $mElement ) {
+							if( $mElement instanceof self ) {
+								$obj->{$szName}[$mKey] = $mElement->asObject( $bIgnoreNullProperties );
+							} else {
+								if( !is_null( $mValue ) || !$bIgnoreNullProperties ) {
+									if( is_bool( $mElement ) )
+										$mElement = ( $mElement === true ) ? 'true' : 'false';
+									$obj->{$szName}[$mKey] = $mElement;
+								}
+							}
+						}
+					} else {
+						if( !is_null( $mValue ) || !$bIgnoreNullProperties ) {
+							if( is_bool( $mValue ) )
+								$mValue = ( $mValue === true ) ? 'true' : 'false';
+							$obj->{$szName} = $mValue;
+						}
+					}
+				}
+	    }
+
+			return $obj;
+	  }
+
 }

@@ -2,16 +2,16 @@
 	"name": "cubitworx/php-ews",
 	"type": "library",
 	"description": "PHP-EWS by jamesiarmes on GitHub (with releases for non-dev usage with composer)",
-	"keywords": [ "clide", "microsoft", "exchange", "ews", "php-ews", "jamesiarmes" ],
+	"keywords": [ "cubitworx", "microsoft", "exchange", "ews", "php-ews", "jamesiarmes" ],
 	"homepage": "http://www.cubitworx.com",
-	"license": "proprietary",
+	"license": "MIT",
 	"authors": [
-	{
-		"name": "Charles Louw",
-		"email": "charles@cubitworx.com",
-		"homepage": "http://www.cubitworx.com",
-		"role": "Developer"
-	}
+		{
+			"name": "Charles Louw",
+			"email": "charles@cubitworx.com",
+			"homepage": "http://www.cubitworx.com",
+			"role": "Developer"
+		}
 	],
 	"support": {
 		"email": "support@cubitworx.com",

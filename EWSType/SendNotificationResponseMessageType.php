@@ -9,7 +9,7 @@
 /**
  * Definition of the SendNotificationResponseMessageType type
  */
-class EWSType_SendNotificationResponseMessageType extends EWSType
+class EWSType_SendNotificationResponseMessageType extends EWSType_ResponseMessageType
 {
     /**
      * Notification property

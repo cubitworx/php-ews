@@ -9,7 +9,7 @@
 /**
  * Definition of the PushSubscriptionRequestType type
  */
-class EWSType_PushSubscriptionRequestType extends EWSType
+class EWSType_PushSubscriptionRequestType extends EWSType_BaseSubscriptionRequestType
 {
     /**
      * StatusFrequency property

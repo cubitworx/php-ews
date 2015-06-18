@@ -78,7 +78,7 @@ class ExchangeWebServices
      *
      * @var NTLMSoapClient_Exchange
      */
-    protected $soap;
+    public $soap;
 
     /**
      * Username to use when connecting to the Exchange server.
@@ -598,6 +598,20 @@ class ExchangeWebServices
      * @return SubscribeResponseType
      */
     public function Subscribe($request)
+    {
+        $this->initializeSoapClient();
+        $response = $this->soap->{__FUNCTION__}($request);
+
+        return $this->processResponse($response);
+    }
+
+    /**
+     * Function Description
+     *
+     * @param GetStreamingEventsType $request
+     * @return GetStreamingEventsResponseType
+     */
+    public function GetStreamingEvents($request)
     {
         $this->initializeSoapClient();
         $response = $this->soap->{__FUNCTION__}($request);

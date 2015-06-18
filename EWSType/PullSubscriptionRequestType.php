@@ -9,7 +9,7 @@
 /**
  * Definition of the PullSubscriptionRequestType type
  */
-class EWSType_PullSubscriptionRequestType extends EWSType
+class EWSType_PullSubscriptionRequestType extends EWSType_BaseSubscriptionRequestType
 {
     /**
      * Timeout property
